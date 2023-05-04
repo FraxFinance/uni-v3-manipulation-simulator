@@ -4,7 +4,6 @@ pragma solidity ^0.8.19;
 import { console2 as console, Test } from "forge-std/Test.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
 import "@mean-finance/uniswap-v3-oracle/solidity/interfaces/IStaticOracle.sol";
-import { Logger } from "frax-std/Logger.sol";
 import { IUniswapV3Pool } from "../src/interfaces/IUniswapV3Pool.sol";
 
 contract TestUniswapV3Price is Test {
