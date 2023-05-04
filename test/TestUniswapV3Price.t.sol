@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: ISC
 pragma solidity ^0.8.19;
 
-import "frax-std/FraxTest.sol";
+import { console2 as console, Test } from "forge-std/Test.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
 import "@mean-finance/uniswap-v3-oracle/solidity/interfaces/IStaticOracle.sol";
 import { Logger } from "frax-std/Logger.sol";
 import { IUniswapV3Pool } from "../src/interfaces/IUniswapV3Pool.sol";
 
-contract TestUniswapV3Price is FraxTest {
+contract TestUniswapV3Price is Test {
     IUniswapV3Pool public pool = IUniswapV3Pool(0x36C060Cc4b088c830a561E959A679A58205D3F56);
     ISwapRouter public swapRouter = ISwapRouter(0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45);
     address public constant FRXETH_ERC20 = 0x5E8422345238F34275888049021821E8E08CAa1f;
@@ -42,6 +42,6 @@ contract TestUniswapV3Price is FraxTest {
             pools,
             900
         );
-        Logger.decimal("Frax Ether Price in Frax Terms", _price1, 1e18);
+        console.log("Frax Ether Price in Frax Terms", _price1);
     }
 }
