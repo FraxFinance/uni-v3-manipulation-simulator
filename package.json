@@ -16,8 +16,10 @@
   "license": "ISC",
   "dependencies": {
     "@chainlink/contracts": "^0.6.1",
+    "@mean-finance/uniswap-v3-oracle": "^1.0.3",
     "@openzeppelin/contracts": "^4.8.2",
     "@types/node": "^18.15.11",
+    "@uniswap/v3-periphery": "^1.4.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",

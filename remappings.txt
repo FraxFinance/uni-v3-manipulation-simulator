@@ -1,2 +1,3 @@
-forge-std/=lib/forge-std/src/
-ds-test/=lib/forge-std/lib/ds-test/src/
+frax-std/=lib/frax-standard-solidity/src/
+forge-std/=lib/frax-standard-solidity/lib/forge-std/src/
+ds-test/=lib/frax-standard-solidity/lib/forge-std/lib/ds-test/src/
