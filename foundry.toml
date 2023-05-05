@@ -1,6 +1,10 @@
 [profile.default]
 src = 'src'
 out = 'out'
+test = 'test'
 libs = ['lib', 'node_modules']
+evm_version = 'london'
+ignored_error_codes = [1878, 2519, 5574,5667,2462, 2072,2018,3420, 9302, 7576]
+
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
