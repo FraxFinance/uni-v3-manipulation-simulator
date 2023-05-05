@@ -23,9 +23,9 @@ contract TestUniswapV3Price is FraxTest, TestHelper {
         // vm.createSelectFork(vm.envString("MAINNET_URL"));
     }
 
-    function testSimulateBuyFrxEth() public {
+    function testSimulateSellFrxEth() public {
         // Configure this amount as needed
-        uint256 _amount = 1e18;
+        uint256 _amount = 10000e18;
         uint256 _blocksToMine = 1;
 
         // Define the pools to check twap on
@@ -33,16 +33,16 @@ contract TestUniswapV3Price is FraxTest, TestHelper {
         pools[0] = address(pool);
 
         // Get initial Price
-        uint256 _price0 = IStaticOracle(0xB210CE856631EeEB767eFa666EC7C1C57738d438).quoteSpecificPoolsWithTimePeriod(
-            1e18,
-            FRXETH_ERC20,
-            FRAX_ERC20,
-            pools,
-            900
-        );
+        uint256 _price0 = IStaticOracle(0xB210CE856631EeEB767eFa666EC7C1C57738d438).quoteSpecificPoolsWithTimePeriod({
+            baseAmount: 1e18,
+            baseToken: FRXETH_ERC20,
+            quoteToken: FRAX_ERC20,
+            pools: pools,
+            period: 900
+        });
 
         // Log the initial price using 1e18 precision
-        Logger.decimal("Initial FraxEther Price in Frax Terms", _price0, 1e18);
+        Logger.decimal("Initial FraxEther Price in Frax Terms:", _price0, 1e18);
 
         // The params for buying
         ISwapRouter02.ExactInputSingleParams memory params = ISwapRouter02.ExactInputSingleParams({
@@ -72,6 +72,6 @@ contract TestUniswapV3Price is FraxTest, TestHelper {
         });
 
         // Log the final price using 1e18 precision
-        Logger.decimal("Frax Ether Price in Frax Terms", _price1, 1e18);
+        Logger.decimal("  Final FraxEther Price in Frax Terms:", _price1, 1e18);
     }
 }
